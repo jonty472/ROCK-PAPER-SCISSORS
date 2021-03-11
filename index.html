@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ROCK PAPER SCISSORS</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+    <form id="form" onsubmit="return false;">
+        <input type="text" id="userInput" />
+        <input type="submit" onclick="userPlay();" />
+    </form>
+  <script>
+
+    /*
+      problems - 
+        - order of functions working
+        - want to console.log() the winner of each round not just the outcome while maintaing minimal if statements
+        -
+      inputs - the users selction and players selection
+      outputs - the result of a round of the game
+
+      plan -
+      
+      if rock and paper
+        paper wins
+      if rock and scissors
+        rock wins
+      if paper and scissors
+        scissors wins
+      else
+        draw. try again.
+      
+      divide-problem -
+      - round outcomes
+      else
+        return both same. try again.
+    */
+    function computerPlay(){
+        const computerSelection = ['rock', 'paper', 'scissors'];
+        return console.log(computerSelection[Math.floor(Math.random() * computerSelection.length)]);
+    }
+    computerPlay();
+
+    function userPlay(){
+        let userSelection = document.getElementById("userInput").value;
+        console.log(userSelection);
+        return userSelection;
+    }
+
+    function playRound(userPlay, computerPlay){
+      if (userPlay == 'rock' && computerPlay == 'paper' || userPlay == 'paper' && computerPlay == 'rock') {
+        return console.log('paper beats rock!');
+      } else if (userPlay == 'rock' && computerPlay == 'scissors' || userPlay == 'scissors' && computerPlay == 'rock'){
+        return console.log('rock beats scissors!');
+      } else if (userPlay == 'paper' && computerPlay == 'scissors' || userPlay == 'scissors' && computerPlay == 'paper'){
+        return console.log('scissors beats paper!');
+      } else {
+        return console.log('both same. try again.');
+      }                                         
+    }
+    playRound(userPlay(), computerPlay());
+  </script>
+</body>
+</html>
